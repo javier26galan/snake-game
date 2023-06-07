@@ -36,14 +36,14 @@ while game_is_on:
 
     # collision with wall
     if pepe.head.xcor() > 280 or pepe.head.xcor() < -280 or pepe.head.ycor() > 280 or pepe.head.ycor() < -280:
-        game_is_on = False
-        scoreboard.game_over()
+        scoreboard.reset()
+        pepe.reset()
 
     # collision with tail
     # pepe.segments[1:] slice the snake to don't count the head in the collision
     for segment in pepe.segments[1:]:
         if pepe.head.distance(segment) < 10:
-            game_is_on = False
-            scoreboard.game_over()
+            scoreboard.reset()
+            pepe.reset()
 
 screen.exitonclick()
